@@ -34,10 +34,6 @@ const InfoblockEl = styled.div`
     opacity: .2;
     border-radius: 40px;
   }
-
-  @media (max-width: ${commonTheme.media.tab}) {
-    gap: 20px;
-  }
   
   &:nth-child(1) {
     color: ${(props: any) => props.theme.CORRECT_SYMBOLS};
@@ -144,6 +140,7 @@ const Title = styled.span`
   font-weight: 500;
   line-height: 100% !important;
   color: #BBB;
+  color: ${(props: any) => props.theme.name === 'light' && `#FFF`};
   text-transform: uppercase;
 `
 const Text = styled.span`

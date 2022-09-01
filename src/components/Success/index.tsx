@@ -63,6 +63,7 @@ const Title = styled.h1`
 `
 const Text = styled.span`
   color: #CCC;
+  color: ${(props: any) => props.theme.name === 'light' && `#FFF`};
 
   @media (max-width: ${commonTheme.media.tab}) {
     width: 70%;
