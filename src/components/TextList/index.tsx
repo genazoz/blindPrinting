@@ -10,6 +10,7 @@ import {
   textSelector
 } from "../../features/textSlice";
 import {useAppDispatch} from "../../app/store";
+import axios from "axios";
 
 const Container = styled.div`
   overflow: auto;
@@ -65,12 +66,11 @@ export const TextList: FC = () => {
     }
 
     const start = async () => {
-      const textArray = await fetch('https://baconipsum.com/api/?paras=15&type=meat-and-filler&start-with-lorem=1').then(json => json.json());
+      const {data} = await axios.get('https://baconipsum.com/api/?paras=15&type=meat-and-filler&start-with-lorem=1');
 
-      if (!textArray)
-        return 0;
-
-      dispatch(setTextArray({textArray: textArray}));
+      if (data) {
+        dispatch(setTextArray({textArray: data}));
+      }
     };
 
     start();
