@@ -30,6 +30,8 @@ const Editor: FC = () => {
   const symbolRef = useRef<HTMLElement>()
 
   const onKeydown = (e: any) => {
+    e.preventDefault();
+
     if (!isEditing)
       return;
 
